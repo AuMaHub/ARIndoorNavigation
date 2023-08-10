@@ -93,6 +93,15 @@ public class QrCodeRecenter : MonoBehaviour {
         }
     }
 
+
+
+    private void StartPoint() {
+        // Reset position and rotation of ARSession
+        session.Reset();
+
+        // Add offset for recentering
+        sessionOrigin.transform.position = new Vector3(-6.505f, 0f, 2.36f);
+    }
     private void SetQrCodeRecenterTarget(string targetText) {
         TargetFacade currentTarget = targetHandler.GetCurrentTargetByTargetText(targetText);
         if (currentTarget != null) {

@@ -38,7 +38,7 @@ public class TargetHandler : MonoBehaviour {
     private TargetFacade CreateTargetFacade(Target target) {
         GameObject targetObject = Instantiate(targetObjectPrefab, targetObjectsParentTransforms[target.FloorNumber], false);
         targetObject.SetActive(true);
-        targetObject.name = $"{target.FloorNumber} - {target.Name}";
+        targetObject.name = $"{target.FloorNumber+1}층 {target.Name}";
         targetObject.transform.localPosition = target.Position;
         targetObject.transform.localRotation = Quaternion.Euler(target.Rotation);
 
@@ -52,7 +52,7 @@ public class TargetHandler : MonoBehaviour {
     private void FillDropdownWithTargetItems() {
         List<TMP_Dropdown.OptionData> targetFacadeOptionData =
             currentTargetItems.Select(x => new TMP_Dropdown.OptionData {
-                text = $"{x.FloorNumber} - {x.Name}"
+                text = $"{x.FloorNumber+ 1}층 {x.Name}"
             }).ToList();
 
         targetDataDropdown.ClearOptions();
